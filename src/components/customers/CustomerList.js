@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react" // allows us to use all of th
 
 export const CustomerList = () => { //function/component that will render html with browser
     const [customers, setCustomers] = useState([])
-
+    const [totalCustomerMessage, updateMessage] = useState("")// updateMessage will update string with totalnumber
     useEffect(
         () => {
             fetch("http://localhost:8088/customers")
@@ -12,15 +12,29 @@ export const CustomerList = () => { //function/component that will render html w
                  }
                 )
         },
-        []
+        []//only makes this run onse since it is empty
     )
+
+    useEffect(
+        () => {
+            if (customers.length === 1) {
+                updateMessage("You have 1 customer")
+            }
+            else {
+                updateMessage(`You have ${customers.length} customers`)
+            }
+        }, 
+        [customers]//this will run everytime the customer state changes
+    )
+
     return (
         <>
-        <h1></h1>
+        <h3>Customer List</h3>
+        <div>{totalCustomerMessage}</div>
         {
-            customers.map(
+            customers.slice(0, 5).map(
                 (customerObject) => { 
-                    return <h2 key= {`customer--${customerObject.id}`}>{customerObject.name}</h2>
+                    return <p key= {`customer--${customerObject.id}`}>{customerObject.name}</p>
                 }
             )
         }
