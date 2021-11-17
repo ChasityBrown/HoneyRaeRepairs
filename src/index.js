@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Repairs from './Repairs';
+import {Repairs}from "./components/Repairs";
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Repairs/>
+    <Repairs />
   </React.StrictMode>,
   document.getElementById('root')
 );
