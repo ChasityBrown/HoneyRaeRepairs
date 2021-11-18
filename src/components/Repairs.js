@@ -4,8 +4,8 @@ import { ApplicationViews } from "./ApplicationViews"
 export const Repairs = () => { //function/component that will render html with browser
     return (
         <>
-            <h1>Honey Rae's Repair Shop</h1>
             <NavBar/>
+            <h1>Honey Rae's Repair Shop</h1>
             <ApplicationViews/>
         </>
     )
