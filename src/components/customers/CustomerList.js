@@ -5,7 +5,7 @@ export const CustomerList = () => { //function/component that will render html w
     const [totalCustomerMessage, updateMessage] = useState("")// updateMessage will update string with totalnumber
     useEffect(
         () => {
-            fetch("http://localhost:8088/customers")
+            fetch("http://localhost:8098/customers")
                 .then(res => res.json())
                 .then((customersArray) => {
                     setCustomers(customersArray)
