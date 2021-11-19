@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react" // allows us to use all of the features that come with the react library
 import { useHistory } from "react-router"
+import "./Ticket.css"
 
 export const TicketList = () => { //function/component that will render html with browser
     const [tickets, updateTickets] = useState([])
@@ -36,9 +37,10 @@ export const TicketList = () => { //function/component that will render html wit
                 tickets.map(
                     (ticket) => {
                         return <div key={`ticket--${ticket.id}`}>
-                            <p>{ticket.description} submitted by {ticket.customer.name} 
-                            and worked on by {ticket.employee.name}
+                            <p className={`ticket`}>
+                                {ticket.emergency ? "🚑" : ""} {ticket.description} submitted by {ticket.customer.name} and worked on by {ticket.employee.name}
                         </p>
+
                     </div>
                     }
                 )
